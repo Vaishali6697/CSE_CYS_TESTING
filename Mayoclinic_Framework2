@@ -5,32 +5,28 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Page {
 
-    public Page(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+public class Page {
+    public Page(WebDriver driver){
+    this.driver =driver;
+    PageFactory.initElements(driver, this);
     }
     WebDriver driver;
 
     @FindBy(xpath = "//span[contains(@class,'cmp-tab__button-title')][contains(text(),'Giving to')]")
     private WebElement DropMayo;
 
-    @FindBy(xpath="//a[@id='button-d87139392b']//span[@role='text'][normalize-space()='Give Now']")
+    @FindBy(xpath = "//a[@id='button-d87139392b']//span[@role='text'][normalize-space()='Give Now']")
     private WebElement mayo2;
 
-
-    public void setDropMayo() {
+    public void setDropMayo(){
         DropMayo.click();
-        
     }
-
-    public void setMayo2() {
-        mayo2.click(); 
+    public void setMayo2(){
+        mayo2.click();
+    }
 }
-}
-
-********************************************************************************
+************************-------------------Page2-----------------**************************
 
 package pages;
 
@@ -208,8 +204,11 @@ public void setSubmit() {
 public String setPopup() {
    String pop= popup.getText();
    return pop;
-} }
-***************************************************************************************
+}
+
+}
+
+************************-------------------Runner-----------------**************************
 
 package runner;
 
@@ -217,7 +216,6 @@ import static utils.Base.log;
 
 import java.net.MalformedURLException;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
@@ -228,7 +226,8 @@ import utils.Base;
 public class Runner extends Base  {
   
   @Test
-public  void Testcase() throws MalformedURLException, InterruptedException {
+
+  public  void Testcase() throws MalformedURLException, InterruptedException {
     Get_properties();
 
     WebDriver driver=openBrowser();
@@ -289,15 +288,13 @@ public  void Testcase() throws MalformedURLException, InterruptedException {
 
 
     Thread.sleep(7000);
-    String pop=home.setPopup();
+    // String pop=home.setPopup();
 
-    System.out.println(pop);
-}
+    // System.out.println(pop);
     
-
 }
-
-******************************************************************************************
+}
+******************************-----------base---------**************************************
 
 package utils;
 
@@ -397,8 +394,6 @@ public class Base {
 
 		}
 	}
-
 }
 
-}
-
+************************----------------------------------------------------------
