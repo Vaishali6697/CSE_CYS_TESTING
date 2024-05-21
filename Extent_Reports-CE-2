@@ -21,6 +21,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.model.Report;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import utils.Base;
@@ -130,15 +131,10 @@ public class Ixigo_Test extends Base {
     @AfterMethod
     public void tearDown() {
         if (driver != null) {
+            extent.flush();  
             driver.quit();
         }
 
     }
 
 }
-
-=================================
-
-Create a excel sheet and copy the path in inputfile.
-
-==================================
