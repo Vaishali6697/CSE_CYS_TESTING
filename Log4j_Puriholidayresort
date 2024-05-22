@@ -1,4 +1,4 @@
-package PuriesHotel_Test;
+package PurisHotel_Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -27,25 +27,21 @@ import utils.LoggerHandler;
 
 
 
-
 public class Test_purihotel {
+    private static final long PAGE_LOAD_TIME = 30;
     public static WebDriver driver;
     
 
  @BeforeMethod
-    public WebDriver beforeMethod() throws MalformedURLException, InterruptedException {
+    public WebDriver beforeMethod() throws MalformedURLException {
         ChromeOptions chromeOptions = new ChromeOptions();
         driver = new RemoteWebDriver(new URL("http://localhost:4444"), chromeOptions);
-        driver.get("https://www.puriholidayresort.com/");
+        driver.get("https://www.puriholidayresort.com");
          WebDriverListener listener = new EventHandler();
         driver = new EventFiringDecorator<>(listener).decorate(driver);
+        driver.manage().window().maximize();
         return driver;
-        //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(PAGE_LOAD_TIME));
-
-       
-
     }
-   
     @Test(priority = 1)
     public void test1()throws Exception{
         Thread.sleep(10000);
@@ -160,5 +156,17 @@ public class Test_purihotel {
             driver.quit();
         }
     }
-
 }
+
+
+---------------------------------------------------------------------
+
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.10.2</version>
+    <scope>test</scope>
+</dependency>
+
+------------------------------------------------------------------------
